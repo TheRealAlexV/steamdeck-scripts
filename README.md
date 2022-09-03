@@ -7,13 +7,15 @@
 
 # Install
 
-1. `mkdir -p ~/.local`
+1. Open Desktop mode, Open up Konsole and set a password for the deck user: `passwd`
 
-2. `git clone git@github.com:TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
+2. `mkdir -p ~/.local`
 
-3. Put the following in your `~/.bash_profile`:
+3. `git clone git@github.com:TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
+
+4. Put the following in your `~/.bash_profile`:
 ```
 export PATH="$PATH:$HOME/.local/steamdeck-scripts"
 ```
 
-4. You may now use any of the Steamdeck script commands from the `Steamdeck Script Commands` section above.
+5. You may now use any of the Steamdeck script commands from the `Steamdeck Script Commands` section above.
