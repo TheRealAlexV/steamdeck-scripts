@@ -6,13 +6,13 @@
 
 # Install
 
-`mkdir -p ~/.local/steamdeck-scripts`
+1. `mkdir -p ~/.local`
 
-``
+2. `git clone git@github.com:TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
 
-Put the following in your `~/.bash_profile`
+3. Put the following in your `~/.bash_profile`:
 ```
 export PATH="$PATH:$HOME/.local/steamdeck-scripts"
 ```
 
-You may now use any of the Steamdeck script commands from the section above.
+4. You may now use any of the Steamdeck script commands from the `Steamdeck Script Commands` section above.
