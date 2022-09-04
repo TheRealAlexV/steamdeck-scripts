@@ -3,7 +3,7 @@ sudo echo "sudoed"
 if [ ! -f "/home/deck/.local/bin/compsize"  ] ||  [ ! -f "/home/deck/.local/bin/duperemove" ] ||  [ ! -f "/home/deck/.local/bin/rmlint" ]
 then
 	mkdir -p ~/.local/.script-cache
-  sudo pacman --cachedir ~/.local/.script-cache/ -Sw compsize duperemove rmlint
+  sudo pacman --noconfirm --cachedir ~/.local/.script-cache/ -Sw compsize duperemove rmlint
   for f in ~/.local/.script-cache/*.pkg.tar.zst ; do tar -xf "$f" -C ~/.local/bin --strip-components=2 usr/bin ; done
   rm -rf ~/.local/.script-cache
 fi
