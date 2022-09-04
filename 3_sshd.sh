@@ -1,7 +1,10 @@
 #!/bin/bash
+sudo echo "sudoed"
 tmpfile="/tmp/authkeys.$$"
 
-sudo sed -i 's\#PermitRootLogin prohibit-password\PermitRootLogin without-password\g' /etc/ssh/sshd_config
+sudo sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
+sudo sed -i -e 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+sudo sed -i -e 's/#X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
 
 echo "Please enter a github user account to add it's SSH key to the root authorized_keys file." >&2
 echo "Leave this blank if you don't want to use an ssh key." >&2
@@ -15,20 +18,36 @@ if [[ $( stat -c'%s' $tmpfile ) -gt 1 ]]; then
   sudo mkdir -p /root/.ssh
   sudo touch /root/.ssh/authorized_keys
   echo "Too the root user:"
-  cat $tmpfile | sudo tee -a /root/.ssh/authorized_keys
+  cat $tmpfile | sudo tee /root/.ssh/authorized_keys
   echo ""| sudo tee -a /root/.ssh/authorized_keys
+  sudo chmod 700 /root/.ssh
+  sudo chmod 644 /root/.ssh/authorized_keys
   
   mkdir -p /home/deck/.ssh
   touch /home/deck/.ssh/authorized_keys
   echo "Too the deck user:"
-  cat $tmpfile | tee -a /home/deck/.ssh/authorized_keys
+  cat $tmpfile | tee /home/deck/.ssh/authorized_keys
   echo ""| tee -a /home/deck/.ssh/authorized_keys
+  sudo chmod 700 /home/deck/.ssh
+  sudo chmod 644 /home/deck/.ssh/authorized_keys
   sudo chown deck:deck /home/deck/.ssh -R
 else
   echo "Couldn't get any keys, or you left the key user blank." >&2
 fi
 
-rm $tmpfile
+sudo rm $tmpfile
+
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+
+echo "Setting up services"
+sudo systemctl enable "$SCRIPTDIR/3_sshd/ssh-inhibit-sleep.service"
+sudo systemctl enable "$SCRIPTDIR/3_sshd/sleep-recover-pipewire.service"
 
 sudo systemctl enable sshd
 sudo systemctl start sshd

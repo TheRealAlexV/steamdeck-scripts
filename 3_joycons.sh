@@ -1,10 +1,10 @@
 #!/bin/bash
-
-yay -Sy hid-nintendo-dkms
+sudo echo "sudoed"
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" hid-nintendo-dkms
 #Needed for single Joycons to show up in steam:
-yay -Sy nintendo-udev
-yay -Sy joycond-git
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" nintendo-udev
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" joycond-git
 #Needed for joycon gyro support in UDP input applications:
-yay -Sy joycond-cemuhook-git
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" joycond-cemuhook-git
 sudo modprobe hid-nintendo
 sudo systemctl enable --now joycond

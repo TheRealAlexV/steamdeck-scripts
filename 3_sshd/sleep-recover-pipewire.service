@@ -1,0 +1,10 @@
+[Unit]
+Description=Recover audio when system is woken up
+After=sleep.target
+[Service]
+Type=oneshot
+User=deck
+Group=deck
+ExecStart=/usr/bin/systemctl --user restart pipewire pipewire-pulse
+[Install]
+WantedBy=sleep.target

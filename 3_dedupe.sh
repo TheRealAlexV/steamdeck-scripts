@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo echo "sudoed"
 if [ ! -f "/home/deck/.local/bin/compsize"  ] ||  [ ! -f "/home/deck/.local/bin/duperemove" ] ||  [ ! -f "/home/deck/.local/bin/rmlint" ]
 then
 	mkdir -p ~/.local/.script-cache
