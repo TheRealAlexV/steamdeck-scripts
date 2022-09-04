@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f "~/.local/bin/compsize"  ] ||  [ ! -f "~/.local/bin/duperemove" ] ||  [ ! -f "~/.local/bin/rmlint" ]
+if [ ! -f "/home/deck/.local/bin/compsize"  ] ||  [ ! -f "/home/deck/.local/bin/duperemove" ] ||  [ ! -f "/home/deck/.local/bin/rmlint" ]
 then
 	mkdir -p ~/.local/.script-cache
   sudo pacman --cachedir ~/.local/.script-cache/ -Sw compsize duperemove rmlint
