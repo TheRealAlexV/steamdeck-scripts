@@ -4,6 +4,7 @@
 - `2_install-dev-tools.sh`: This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
 - `2_sshd.sh`: Sets up SSHd for use.
 - `2_ufw.sh`: Sets up UFW Firewall.
+- `2_backup_packages.sh` and `2_restore_packages.sh`: Backup and restore for pacman and flatpak packages.
 - `3_dedupe.sh`: For use with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication capabilities to save space.
 - `3_joycons.sh`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
 

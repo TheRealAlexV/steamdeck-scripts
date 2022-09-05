@@ -1,4 +1,13 @@
 #!/bin/bash
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+. $SCRIPTDIR/config.sh
+
 sudo echo "sudoed"
 sudo steamos-readonly disable
 tmpfile="/tmp/authkeys.$$"
@@ -24,27 +33,19 @@ if [[ $( stat -c'%s' $tmpfile ) -gt 1 ]]; then
   sudo chmod 700 /root/.ssh
   sudo chmod 644 /root/.ssh/authorized_keys
   
-  mkdir -p /home/deck/.ssh
-  touch /home/deck/.ssh/authorized_keys
+  mkdir -p $DECKHOME/.ssh
+  touch $DECKHOME/.ssh/authorized_keys
   echo "Too the deck user:"
-  cat $tmpfile | tee /home/deck/.ssh/authorized_keys
-  echo ""| tee -a /home/deck/.ssh/authorized_keys
-  sudo chmod 700 /home/deck/.ssh
-  sudo chmod 644 /home/deck/.ssh/authorized_keys
-  sudo chown deck:deck /home/deck/.ssh -R
+  cat $tmpfile | tee $DECKHOME/.ssh/authorized_keys
+  echo ""| tee -a $DECKHOME/.ssh/authorized_keys
+  sudo chmod 700 $DECKHOME/.ssh
+  sudo chmod 644 $DECKHOME/.ssh/authorized_keys
+  sudo chown deck:deck $DECKHOME/.ssh -R
 else
   echo "Couldn't get any keys, or you left the key user blank." >&2
 fi
 
 sudo rm $tmpfile
-
-SOURCE=${BASH_SOURCE[0]}
-while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
-  SOURCE=$(readlink "$SOURCE")
-  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 echo "Setting up services"
 sudo systemctl enable "$SCRIPTDIR/3_sshd/ssh-inhibit-sleep.service"
