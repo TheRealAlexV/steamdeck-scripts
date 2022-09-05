@@ -23,7 +23,7 @@ echo " Select the operation ************"
 echo "  1) De-duplicate"
 echo "  2) Balance and Defrag /home steamapps"
 echo "  3) Balance and Defrag sdcard steamapps"
-echo "  4) Quit" 
+echo "  Q) Quit" 
 read n
 
 case $n in
