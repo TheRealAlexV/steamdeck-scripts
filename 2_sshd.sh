@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo echo "sudoed"
+sudo steamos-readonly disable
 tmpfile="/tmp/authkeys.$$"
 
 sudo sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
@@ -51,3 +52,4 @@ sudo systemctl enable "$SCRIPTDIR/3_sshd/sleep-recover-pipewire.service"
 
 sudo systemctl enable sshd
 sudo systemctl start sshd
+sudo steamos-readonly enable

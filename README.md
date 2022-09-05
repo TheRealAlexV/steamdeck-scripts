@@ -1,8 +1,9 @@
 # Steamdeck Script Commands
 
-- `1_mkwritable.sh`: This script makes the Steamdeck system partition writable and updates the pacman keychain for first use. This is basically the same as step 2 in the install directions.
+- `1_post-update-init.sh`: Reinstalls any apps after steamos update.
 - `2_install-dev-tools.sh`: This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
-- `3_sshd.sh`: Sets up SSHd for use.
+- `2_sshd.sh`: Sets up SSHd for use.
+- `2_ufw.sh`: Sets up UFW Firewall.
 - `3_dedupe.sh`: For use with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication capabilities to save space.
 - `3_joycons.sh`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
 
