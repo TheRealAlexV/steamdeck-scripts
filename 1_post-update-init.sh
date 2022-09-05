@@ -58,8 +58,4 @@ yes | sudo pacman -Syuu
 yes | sudo pacman -Syu --needed $PACKAGES
 yes | sudo pacman -Scc
 
-## fixes problem with flatpak version of lutris
-sudo cp config.py /usr/lib/python3.10/site-packages/lutris/util/steam/
-sudo python -m compileall /usr/lib/python3.10/site-packages/lutris/util/steam/
-
 sudo steamos-readonly enable

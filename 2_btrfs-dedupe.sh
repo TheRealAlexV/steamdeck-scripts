@@ -10,6 +10,15 @@ SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 sudo echo "sudoed"
 sudo steamos-readonly disable
+if [ ! -f "/var/lib/overlays/etc/upper/default/steamos-btrfs"  ]
+then
+  read -n 1 -s -r -p "You don't have gitlab.com/popsulfr/steamos-btrfs/ installed. Press any key to install, or press CTRL+Z to abort."
+  cd $HOME
+  mkdir steamos-btrfs
+  curl -sSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C steamos-btrfs --strip-components=1
+  sudo NONINTERACTIVE=1 ./steamos-btrfs/install.sh
+fi
+
 if [ ! -f "$LOCALBINS/compsize"  ] ||  [ ! -f "$LOCALBINS/duperemove" ] ||  [ ! -f "$LOCALBINS/rmlint" ]
 then
 	mkdir -p $SCRIPTCACHE
