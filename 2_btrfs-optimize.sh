@@ -17,6 +17,7 @@ then
   mkdir steamos-btrfs
   curl -sSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C steamos-btrfs --strip-components=1
   sudo NONINTERACTIVE=1 ./steamos-btrfs/install.sh
+  sudo reboot
 fi
 
 echo " Select the operation ************"
