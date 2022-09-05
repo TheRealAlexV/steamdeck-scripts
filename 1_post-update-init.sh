@@ -51,6 +51,7 @@ sudo rm /etc/ctdb/functions
 sudo rm /etc/X11/tigervnc/Xsession 
 sudo rm /etc/ld.so.conf.d/fakeroot.conf
 sudo rm -r /etc/ufw
+echo "!!! Don't worry if you see errors about no such files or directories. It just means that the files are allready gone, which is intended. !!!"
 
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
