@@ -9,15 +9,16 @@ SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 . $SCRIPTDIR/config.sh
 
 declare -A PORTS
-PORTS[5900]=tcp
-PORTS[22]=tcp
+PORTS["5900"]=tcp
+PORTS["22"]=tcp
 
 sudo echo "sudoed"
 sudo steamos-readonly disable
 echo "Setting up firewall"
-sudo pacman -S ufw --noconfirm
+sudo pacman -Syu ufw --noconfirm
 yes | sudo ufw reset
-sudo ufw default disable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 for P in "${!PORTS[@]}"; do 
   sudo ufw allow "${P}"/"${PORTS[$P]}";
 done

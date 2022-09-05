@@ -10,6 +10,7 @@ SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 sudo echo "sudoed"
 sudo steamos-readonly disable
+sudo pacman --noconfirm -Syu udev libevdev
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" hid-nintendo-dkms
 #Needed for single Joycons to show up in steam:
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" nintendo-udev

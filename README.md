@@ -6,7 +6,7 @@
 - `2_ufw.sh`: Sets up UFW Firewall.
 - `2_fix_lutris`: Fixes problem with flatpak version of lutris.
 - `2_backup_packages.sh` and `2_restore_packages.sh`: Backup and restore for pacman and flatpak packages.
-- `3_dedupe.sh`: For use with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication capabilities to save space.
+- `3_btrfs-optimize.sh`: Made to be used with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication and btrfs balancing capabilities to save space.
 - `3_joycons.sh`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
 
 # Install

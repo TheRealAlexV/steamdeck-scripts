@@ -12,6 +12,7 @@ sudo echo "sudoed"
 sudo steamos-readonly disable
 
 PACKAGES="krfb screen htop wget git ncdu yay-git mlocate"
+sudo ufw disable
 
 ## deletes files that are automatically recreated but will break reinstall
 sudo rm /etc/ctdb/ctdb-crash-cleanup.sh 
