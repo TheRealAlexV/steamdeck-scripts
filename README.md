@@ -17,7 +17,7 @@
 
 3. `mkdir -p ~/.local`
 
-4. `git clone git@github.com:TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
+4. `git clone https://github.com/TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
 
 5. Put the following in your `~/.bash_profile`:
 ```
