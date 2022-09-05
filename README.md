@@ -17,13 +17,13 @@
 
 3. `mkdir -p ~/.local`
 
-4. `git clone https://github.com/TheRealAlexV/steamdeck-scripts.git ~/.local/steamdeck-scripts`
+4. `git clone https://github.com/TheRealAlexV/steamdeck-scripts.git ~/.local/trav-steamdeck-scripts`
 
 5. Put the following in your `~/.bash_profile`:
 ```
-export PATH="$PATH:$HOME/.local/steamdeck-scripts"
+export PATH="$PATH:$HOME/.local/trav-steamdeck-scripts"
 ```
 
 NOTE: If you change the location of the scripts from $HOME/.local/steamdeck-scripts, be sure to update the config.sh file with the new path.
 
-6. You may now use any of the Steamdeck script commands from the `Steamdeck Script Commands` section above.
+6. Re-open the terminal and use the `trav-scripts` command to bring up the main menu.

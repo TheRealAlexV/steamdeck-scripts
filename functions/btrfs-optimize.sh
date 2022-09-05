@@ -1,16 +1,7 @@
 #!/bin/bash
-SOURCE=${BASH_SOURCE[0]}
-while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
-  SOURCE=$(readlink "$SOURCE")
-  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
-. $SCRIPTDIR/config.sh
-
 sudo echo "sudoed"
 sudo steamos-readonly disable
-if [ ! -f "/var/lib/overlays/etc/upper/default/steamos-btrfs"  ]
+if [ ! -f "/etc/default/steamos-btrfs"  ]
 then
   read -n 1 -s -r -p "You don't have gitlab.com/popsulfr/steamos-btrfs/ installed. Press any key to install, or press CTRL+Z to abort."
   cd $HOME
@@ -33,6 +24,7 @@ case $n in
             if [ ! -f "$LOCALBINS/compsize"  ] ||  [ ! -f "$LOCALBINS/duperemove" ] ||  [ ! -f "$LOCALBINS/rmlint" ]
             then
               mkdir -p $SCRIPTCACHE
+              mkdir -p $LOCALBINS
               sudo pacman --noconfirm --cachedir $SCRIPTCACHE/ -Sw compsize duperemove rmlint
               for f in $SCRIPTCACHE/*.pkg.tar.zst ; do tar -xf "$f" -C $LOCALBINS --strip-components=2 usr/bin ; done
               rm -rf $SCRIPTCACHE
@@ -55,5 +47,4 @@ case $n in
         *)
             ;;
 esac
-
 sudo steamos-readonly enable

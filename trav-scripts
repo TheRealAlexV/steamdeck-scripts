@@ -1,0 +1,54 @@
+#!/bin/bash
+
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+. $SCRIPTDIR/config.sh
+
+echo " Select the operation ************"
+echo "  1) Post Update Init   |  2) SSHd Configuration  |  3) Install Dev Tools "
+echo "  4) BTRFS Utilities    |    5) Backup Packages   |  6) Restore Packages "
+echo "  7) Setup Joycon Cfgs  |       8) Setup UFW      |  9) Fix Lutris Flatpak "
+echo "  Q) Quit" 
+read n
+
+case $n in
+        1)
+            . $FUNCTIONS/post-update-init.sh
+            ;;
+        2)
+            . $FUNCTIONS/sshd.sh
+            ;;
+        3)
+            . $FUNCTIONS/install-dev-tools.sh
+            ;;
+        4)
+            . $FUNCTIONS/btrfs-optimize.sh
+            ;;
+        5)
+            . $FUNCTIONS/backup-packages.sh
+            ;;
+        6)
+            . $FUNCTIONS/restore-packages.sh
+            ;;
+        7)
+            . $FUNCTIONS/joycons.sh
+            ;;
+        8)
+            . $FUNCTIONS/ufw.sh
+            ;;
+        9)
+            . $FUNCTIONS/fix_lutris.sh
+            ;;
+        q)
+            exit
+            ;;
+        *)
+            echo "Thats not an option."
+            exit
+            ;;
+esac
