@@ -10,7 +10,7 @@ SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 sudo echo "sudoed"
 sudo steamos-readonly disable
-if [ ! -f "/home/deck/.local/bin/compsize"  ] ||  [ ! -f "/home/deck/.local/bin/duperemove" ] ||  [ ! -f "/home/deck/.local/bin/rmlint" ]
+if [ ! -f "$LOCALBINS/compsize"  ] ||  [ ! -f "$LOCALBINS/duperemove" ] ||  [ ! -f "$LOCALBINS/rmlint" ]
 then
 	mkdir -p $SCRIPTCACHE
   sudo pacman --noconfirm --cachedir $SCRIPTCACHE/ -Sw compsize duperemove rmlint
