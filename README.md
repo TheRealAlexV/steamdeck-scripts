@@ -35,6 +35,10 @@ NOTE: If you change the location of the scripts from $HOME/.local/trav-steamdeck
 
 Open the terminal or ssh session and use the `trav-scripts` command to bring up the main menu.
 
+# Issues
+
+- If your device won't turn off (turns on again immediately after turning off), the sleep inhibitor might be acting up. You can disable it with `sudo systemctl disable ssh-inhibit-sleep`
+
 # Thanks!
 
 gitlab.com/popsulfr for his amazing gitlab.com/popsulfr/steamos-btrfs BTRFS conversation scripts.

@@ -3,6 +3,6 @@ Description=Prevent sleep when SSH sessions are active
 Before=sleep.target
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c '[ "$(who | grep "pts/")" == "" ]'
+ExecStart=/bin/sh -c '[ "$(who | grep "pts/")" == "" ]';
 [Install]
 RequiredBy=sleep.target
