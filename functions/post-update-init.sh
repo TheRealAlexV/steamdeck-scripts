@@ -47,8 +47,8 @@ echo "!!! Don't worry if you see errors about no such files or directories. It j
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo pacman-key --populate holo
-yes | sudo pacman -Syuu
-yes | sudo pacman -Syu --needed $PACKAGES
+yes | sudo pacman -Sy
+yes | sudo pacman -Sy --needed $PACKAGES
 yes | sudo pacman -Scc
 
 sudo steamos-readonly enable
