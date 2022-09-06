@@ -1,3 +1,4 @@
+# From: gitlab.com/popsulfr/steamos-btrfs/
 """Handle Steam configuration"""
 import os
 from collections import OrderedDict
