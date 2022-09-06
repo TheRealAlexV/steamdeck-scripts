@@ -34,3 +34,7 @@ NOTE: If you change the location of the scripts from $HOME/.local/trav-steamdeck
 # Usage
 
 Open the terminal or ssh session and use the `trav-scripts` command to bring up the main menu.
+
+# Thanks!
+
+gitlab.com/popsulfr for his amazing gitlab.com/popsulfr/steamos-btrfs BTRFS conversation scripts.
