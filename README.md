@@ -10,6 +10,7 @@ HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, S
 - `Backup Packages` and `Restore Packages`: Backup and restore for pacman and flatpak packages.
 - `BTRFS Utilities`: Made to be used with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication and btrfs balancing capabilities to save space.
 - `Setup Joycon Cfgs`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
+- `Kill Windows Emus`: Kills any stuck(or unstuck) windows emulators.
 
 # Install
 
