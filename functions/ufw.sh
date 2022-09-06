@@ -1,8 +1,4 @@
 #!/bin/bash
-declare -A PORTS
-PORTS["5900"]=tcp
-PORTS["22"]=tcp
-
 sudo echo "sudoed"
 sudo steamos-readonly disable
 echo "Setting up firewall"
