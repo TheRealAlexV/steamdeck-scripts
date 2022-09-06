@@ -2,12 +2,12 @@
 sudo echo "sudoed"
 sudo steamos-readonly disable
 sudo pacman --noconfirm -Syu udev libevdev
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" hid-nintendo-dkms
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S hid-nintendo-dkms
 #Needed for single Joycons to show up in steam:
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" nintendo-udev
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" joycond-git
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S nintendo-udev
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S joycond-git
 #Needed for joycon gyro support in UDP input applications:
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" joycond-cemuhook-git
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S joycond-cemuhook-git
 sudo modprobe hid-nintendo
-sudo systemctl enable --now joycond
+sudo systemctl enable --now "$INCLUDES/joycons/joycond.service"
 sudo steamos-readonly enable
