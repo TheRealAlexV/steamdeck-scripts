@@ -3,6 +3,6 @@ Description=Prevent sleep when SSH sessions are active
 Before=sleep.target
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c '[ "$(who | grep "pts/")" == "" ]';
+ExecStart=/bin/bash -c '~/.local/trav-steamdeck-scripts/includes/sshd/check-sessions.sh';
 [Install]
 RequiredBy=sleep.target
