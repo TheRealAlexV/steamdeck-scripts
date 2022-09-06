@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo echo "sudoed"
 sudo steamos-readonly disable
-sudo pacman --noconfirm -Syu udev libevdev
+sudo pacman --noconfirm -Syu udev libevdev fakeroot
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S hid-nintendo-dkms
 #Needed for single Joycons to show up in steam:
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" -S nintendo-udev

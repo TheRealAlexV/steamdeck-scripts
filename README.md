@@ -1,17 +1,21 @@
-# Steamdeck Script Commands
+HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, STRONGER@!
 
-- `1_post-update-init.sh`: Reinstalls apps that are specified in the $PACKAGES var after steamos update. Adjusts a few other settings.
-- `2_install-dev-tools.sh`: This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
-- `2_sshd.sh`: Sets up SSHd for use.
-- `2_ufw.sh`: Sets up UFW Firewall.
-- `2_fix_lutris`: Fixes problem with flatpak version of lutris.
-- `2_backup_packages.sh` and `2_restore_packages.sh`: Backup and restore for pacman and flatpak packages.
-- `3_btrfs-optimize.sh`: Made to be used with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication and btrfs balancing capabilities to save space.
-- `3_joycons.sh`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
+# Steamdeck Script Options
+
+- `Post Update Init`: Reinstalls apps that are specified in the $PACKAGES var after steamos update. Adjusts a few other settings.
+- `Install Dev Tools`: This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
+- `SSHd Configuration`: Sets up SSHd for use.
+- `Setup UFW`: Sets up UFW Firewall.
+- `Fix Lutris Flatpak`: Fixes problem with flatpak version of lutris.
+- `Backup Packages` and `Restore Packages`: Backup and restore for pacman and flatpak packages.
+- `BTRFS Utilities`: Made to be used with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication and btrfs balancing capabilities to save space.
+- `Setup Joycon Cfgs`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
 
 # Install
 
 1. Open Desktop mode, Open up Konsole and set a password for the deck user: `passwd`
+
+NOTE: At this point, do yourself a favor and `sudo systemctl enable sshd --now` so that you can ssh in and stop using that shit steamos keyboard.  
 
 2. `sudo steamos-readonly disable;sudo pacman-key --init;sudo pacman-key --populate archlinux`
 
@@ -24,6 +28,8 @@
 export PATH="$PATH:$HOME/.local/trav-steamdeck-scripts"
 ```
 
-NOTE: If you change the location of the scripts from $HOME/.local/steamdeck-scripts, be sure to update the config.sh file with the new path.
+NOTE: If you change the location of the scripts from $HOME/.local/trav-steamdeck-scripts, be sure to update the config.sh file with the new path.
 
-6. Re-open the terminal and use the `trav-scripts` command to bring up the main menu.
+# Usage
+
+Open the terminal or ssh session and use the `trav-scripts` command to bring up the main menu.
