@@ -3,7 +3,7 @@ read -n 1 -s -r -p "You should only install these if you know what you are doing
 sudo echo "sudoed"
 sudo steamos-readonly disable
 sudo pacman --noconfirm -S --overwrite \* base-devel
-sudo pacman --noconfirm -Syu fakeroot glibc linux-api-headers libdrm libappindicator-gtk3 cmake gcc
-sudo pacman --noconfirm -Syu holo/linux-headers linux-neptune-headers holo/linux-lts-headers
+sudo pacman --noconfirm -S fakeroot glibc linux-api-headers libdrm libappindicator-gtk3 cmake gcc
+sudo pacman --noconfirm -S holo/linux-headers linux-neptune-headers holo/linux-lts-headers
 sudo pacman -Qknq | cut -d' ' -f 1 | sudo pacman --noconfirm -S --overwrite '*' -
 sudo steamos-readonly enable
