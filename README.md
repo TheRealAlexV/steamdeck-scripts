@@ -1,6 +1,6 @@
 HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, STRONGER@!
 
-# Steamdeck Script Options
+# trav-scripts Options
 
 - `Post Update Init`: Reinstalls apps that are specified in the $PACKAGES var after steamos update. Adjusts a few other settings.
 - `Install Dev Tools`: This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
