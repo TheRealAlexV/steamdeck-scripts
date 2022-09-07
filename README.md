@@ -11,6 +11,8 @@ HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, S
 - `BTRFS Utilities`: Made to be used with: https://gitlab.com/popsulfr/steamos-btrfs/. Uses Deduplication and btrfs balancing capabilities to save space.
 - `Setup Joycon Cfgs`: This setups the required drivers to make Nintendo Switch Joycon controllers work with Steamdeck.
 - `Kill Windows Emus`: Kills any stuck(or unstuck) windows emulators.
+- `Sleep Inhibitor`: Keeps the Deck from going to sleep when an active ssh connection or vscode session is going.
+- `Pipewire Fix`: Fixes an issue where audio won't return after coming back from sleep.
 
 # Install
 
