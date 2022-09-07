@@ -3,7 +3,7 @@ HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, S
 # trav-scripts Options
 
 - `Post Update Init`: Reinstalls apps that are specified in the $PACKAGES var after steamos update. Adjusts a few other settings.
-- `Install Dev Tools`: Warning: You should only install these if you know what you are doing. Its easy to brick your device using this option, especially if you don't have enough space available. This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development.
+- `Install Dev Tools`: Warning: You should only install these if you know what you are doing. Its easy to brick your device using this option, especially if you don't have enough space available. This will install most tools that are required to build packages from source; glibc, libdrm, ect. It will also reinstall any package files that were stripped by Valve to save space, that would otherwise be useful for development. Note: You won't find this listed in the main menu, however you can access it by typing `D` as your menu option at the main menu.
 - `SSHd Configuration`: Sets up SSHd for use.
 - `Setup UFW`: Sets up UFW Firewall.
 - `Fix Lutris Flatpak`: Fixes problem with flatpak version of lutris.
