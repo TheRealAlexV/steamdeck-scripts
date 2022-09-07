@@ -39,8 +39,6 @@ fi
 sudo rm $tmpfile
 
 echo "Setting up services"
-sudo systemctl enable "$INCLUDES/sshd/ssh-inhibit-sleep.service"  
-sudo systemctl enable "$INCLUDES/sshd/sleep-recover-pipewire.service"
 
 sudo systemctl enable sshd
 sudo systemctl start sshd

@@ -9,11 +9,12 @@ done
 SCRIPTDIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 . $SCRIPTDIR/config.sh
 
-echo " Select the operation ************"
-echo "  1) Post Update Init    |   2) SSHd Configuration  |   3) Install Dev Tools   "
-echo "  4) BTRFS Utilities     |     5) Backup Packages   |    6) Restore Packages   "
-echo "  7) Setup Joycon Cfgs   |        8) Setup UFW      |   9) Fix Lutris Flatpak  "
-echo "  10) Kill Windows Emus  |  11) Fix pipewire Audio  |          Q) Quit         "
+echo " Trav-Scripts Menu: github.com/TheRealAlexV/steamdeck-scripts"
+echo "  1) Post Update Init    |   2) SSHd Configuration  |   3) Install Dev Tools    "
+echo "  4) BTRFS Utilities     |     5) Backup Packages   |    6) Restore Packages    "
+echo "  7) Setup Joycon Cfgs   |        8) Setup UFW      |   9) Fix Lutris Flatpak   "
+echo "  10) Kill Windows Emus  |  11) Fix pipewire Audio  | 12) Setup Sleep Inhibitor "
+echo "                                    Q) Quit                                     "
 echo -n "B=D: "
 read n
 
@@ -50,6 +51,9 @@ case $n in
             ;;
         11)
             . $FUNCTIONS/pipewire_fix.sh
+            ;;
+        12)
+            . $FUNCTIONS/inhibit_sleep.sh
             ;;
         q)
             exit
