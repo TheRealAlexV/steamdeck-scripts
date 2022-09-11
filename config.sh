@@ -22,6 +22,7 @@ mkdir -p "$SCRIPTSHOME"
 mkdir -p "$LOCALBINS"
 
 # Adding to Path:
+
 grep -qxF 'export PATH="$PATH:$HOME/.local/trav-steamdeck-scripts"' $DECKHOME/.bashrc || echo 'export PATH="$PATH:$HOME/.local/trav-steamdeck-scripts"' >> $DECKHOME/.bashrc
 grep -qxF 'export PATH="$PATH:$HOME/.local/bin"' $DECKHOME/.bashrc || echo 'export PATH="$PATH:$HOME/.local/bin"' >> $DECKHOME/.bashrc
 

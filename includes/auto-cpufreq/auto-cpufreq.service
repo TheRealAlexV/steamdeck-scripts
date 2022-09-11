@@ -1,0 +1,10 @@
+[Unit]
+Description=auto-cpufreq - Automatic CPU speed & power optimizer for Linux
+
+[Service]
+Type=simple
+ExecStart=sudo -E -n -- "/home/deck/.local/bin/auto-cpufreq" --daemon --config "/home/deck/.config/auto-cpufreq.conf"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
