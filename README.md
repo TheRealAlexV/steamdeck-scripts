@@ -15,6 +15,7 @@ HELO. WELCOME. PLZ USE THESE SCRIPTS TO MAKE YOUR DECK BIGGER, FASTER, HARDER, S
 - `Pipewire Fix`: Fixes an issue where audio won't return after coming back from sleep.
 - `Sudo NoPasswd`: Makes sudo on the deck account not require a password every time.
 - `auto-cpufreq`: Automatically optimize cpu speed and power with auto-cpufreq.
+- `Dock Resolution Fix`: For whatever reason the Gamescope configuration that the Deck ships with only allows external rendering at 1280x800(the native screen resolution). This lifts that cap and allows up to 1080p and higher refresh rates.
 
 # Install
 

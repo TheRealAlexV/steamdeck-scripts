@@ -2,7 +2,7 @@
 sudo echo "sudoed"
 sudo steamos-readonly disable
 
-PACKAGES="krfb screen htop wget git ncdu yay-git"
+PACKAGES="krfb screen htop wget git ncdu yay-git colord colord-kde"
 
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
