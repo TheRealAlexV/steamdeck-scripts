@@ -61,6 +61,9 @@ case $n in
         14)
             . $FUNCTIONS/dock-resolution-fix.sh
             ;;
+        15)
+            . $FUNCTIONS/fix_krfb.sh
+            ;;
         D)
             . $FUNCTIONS/install-dev-tools.sh
             ;;
