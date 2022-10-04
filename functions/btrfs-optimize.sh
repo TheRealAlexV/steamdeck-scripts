@@ -12,9 +12,10 @@ then
 fi
 
 echo " Select the operation ************"
-echo "  1) De-duplicate"
-echo "  2) Balance and Defrag /home steamapps"
-echo "  3) Balance and Defrag sdcard steamapps"
+echo "  1) De-duplicate (Quick)"
+echo "  2) De-duplicate (Block+Slow)"
+echo "  3) Balance and Defrag /home steamapps"
+echo "  4) Balance and Defrag sdcard steamapps"
 echo "  Q) Quit" 
 read n
 
@@ -32,14 +33,28 @@ case $n in
             cd /tmp || exit
             sudo rmlint --types="duplicates" --config=sh:handler=clone /home
             sudo ./rmlint.sh -d -p -r -k
-            sudo rm -r rmlint*            
+            sudo rm -r rmlint*
+            if [ -d "/run/media/mmcblk0p1"  ]
+            then
+              sudo rmlint --types="duplicates" --config=sh:handler=clone /run/media/mmcblk0p1
+              sudo ./rmlint.sh -d -p -r -k
+              sudo rm -r rmlint*
+            fi            
             ;;
         2)
+            echo "Running Duperemove"
+            sudo duperemove -r -d -h --hashfile=/home/duperemove.hash --skip-zeroes --lookup-extents=no /home
+            if [ -d "/run/media/mmcblk0p1"  ]
+            then
+              sudo duperemove -r -d -h --hashfile=/home/duperemove.hash --skip-zeroes --lookup-extents=no /run/media/mmcblk0p1
+            fi
+            ;;
+        3)
             echo "Balance and Defrag /home steamapps"
             sudo btrfs filesystem defrag -czstd -v -r -f /home/deck/.local/share/Steam/steamapps
             sudo btrfs balance start -m -v /home/deck/.local/share/Steam/steamapps
             ;;
-        3)
+        4)
             echo "Balance and Defrag sdcard steamapps"
             sudo btrfs filesystem defrag -czstd -v -r -f /run/media/mmcblk0p1/steamapps
             sudo btrfs balance start -m -v /run/media/mmcblk0p1/steamapps

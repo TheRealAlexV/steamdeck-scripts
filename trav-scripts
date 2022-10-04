@@ -14,7 +14,8 @@ echo "  1) Post Update Init    |   2) SSHd Configuration  |  3) Setup Sleep Inhi
 echo "  4) BTRFS Utilities     |     5) Backup Packages   |    6) Restore Packages    "
 echo "  7) Setup Joycon Cfgs   |        8) Setup UFW      |   9) Fix Lutris Flatpak   "
 echo "  10) Kill Windows Emus  |  11) Fix pipewire Audio  |     12) Sudo NoPasswd     "
-echo "  13) auto-cpufreq       |  14) Dock Resolution Fix |          Q) Quit          "
+echo "  13) auto-cpufreq       |  14) Dock Resolution Fix |        15) Fix KRFB       "
+echo "                         |          Q) Quit         |                           "
 echo -n "B=D: "
 read n
 
